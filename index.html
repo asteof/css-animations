@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>CSS animations</title>
+    <script defer type="module" src="main.js"></script>
+</head>
+<body>
+
+<div class="heading-anim">
+    <h1>CSS ANIMATIONS</h1>
+</div>
+<div class="button-top"><img src="media/heart.png" alt="up"></div>
+<nav>
+    <h2>Contents</h2>
+    <ol>
+        <li>
+            <a href="#OVERVIEW"><h3>OVERVIEW</h3></a>
+            <ul>
+                <li>TRANSITIONS <a href="#TRANSITIONS-o">>>></a></li>
+                <li>ANIMATIONS <a href="#ANIMATIONS-o">>>></a></li>
+                <li>TRANSFORMS <a href="#TRANSFORMS-o">>>></a></li>
+                <li>FILTERS <a href="#FILTERS-o">>>></a></li>
+                <li>ANIMATIONS AND TRANSITIONS RELATIONSHIP <a href="#ANIMATIONS_AND_TRANSITIONS">>>></a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#SYNTAX"><h3>SYNTAX, GOOD AND BAD PRACTICES</h3></a>
+            <ul>
+                <li>TRANSITION <a href="#TRANSITION-s">>>></a></li>
+                <li>ANIMATION <a href="#ANIMATION-s">>>></a></li>
+                <li>TRANSFORM <a href="#TRANSFORM-s">>>></a></li>
+                <li>FILTER <a href="#FILTER-s">>>></a></li>
+                <li>EASING FUNCTIONS, CUBIC-BEZIER <a href="#EASING-s">>>></a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#JAVASCRIPT"><h3>JAVASCRIPT-CSS ANIMATIONS</h3></a>
+            <ul>
+                <li>ASSIGNING CSS CLASS ON EVENT <a href="#ASSIGNING_CLASS">>>></a></li>
+                <li>CREATING CSS ANIMATION VIA JS <a href="#CREATING_IN_JS">>>></a></li>
+            </ul>
+        </li>
+    </ol>
+
+</nav>
+
+<main>
+    <h2 id="OVERVIEW">OVERVIEW</h2>
+    <article>
+        <section id="TRANSITIONS-o">
+            <h2>TRANSITIONS</h2>
+            <p>
+                CSS transitions allows you to change property values <span>smoothly</span>, over a given duration.
+            </p>
+            <!--        <p>-->
+            <!--            Hover over boxes to see the difference:-->
+            <!--        </p>-->
+            <div class="comparison">
+                <div>
+                    <div class="box"></div>
+                    Box
+                </div>
+                <div>
+                    <div class="box transitions1"></div>
+                    Box with transition
+                </div>
+            </div>
+            <!--        <p>You can change all properties at once, or one by one:</p>-->
+            <div class="comparison">
+                <div>
+                    <div class="box2 transitions1">
+                        I can smoothly change color, size, padding, border and more...
+                    </div>
+                </div>
+                <div>
+                    <div class="box2 transitions2">
+                        I can only change color and background color smoothly
+                    </div>
+                </div>
+            </div>
+            <!--        <p>Also you can change speed for each property:</p>-->
+            <div class="example">
+                <div class="box transitions3">
+                    Text
+                </div>
+            </div>
+
+            <!--        <p>-->
+            <!--            In last example color transition is set to <span>1 second</span>,-->
+            <!--            while background color changes for <span>8 seconds</span>-->
+            <!--        </p>-->
+            <!--            <p>-->
+            <!--                Easing function describes transition behavior.-->
+            <!--                There are different easing functions available:-->
+            <!--            </p>-->
+            <div class="example">
+                <div class="box transitions4">Linear</div>
+                <div class="box transitions5">Ease in</div>
+                <div class="box transitions6">Ease out</div>
+                <div class="box transitions7">Steps 4</div>
+                <div class="box transitions8">.82,-0.24,0,.95</div>
+            </div>
+
+        </section>
+
+        <section id="ANIMATIONS-o">
+            <h2>ANIMATIONS</h2>
+            <p>
+                An animation lets an element gradually change <span>from one style to another</span>.
+            </p>
+            <!--            <p>-->
+            <!--                You can change as many CSS properties you want, as many times as you want.-->
+            <!--            </p>-->
+            <p>
+                To use CSS animation, you must first specify some keyframes for the animation.
+                Keyframes hold what styles the element will have at certain times.
+            </p>
+
+            <div class="example">
+                <div class="animation-board">
+                    <div class="box3 movingBox-anim"></div>
+                </div>
+            </div>
+
+            <div class="example">
+                <div class="rgbText"><h2>RGB text</h2></div>
+            </div>
+
+            <div class="example">
+                <img
+                        class="pulse"
+                        src="media/heart.png"
+                        alt="Heart">
+            </div>
+
+            <div class="comparison">
+                <div>
+                    <div class="spinning-border">
+                        <div class="border-anim1"></div>
+                        <div>Text</div>
+                    </div>
+                    <!--                    Spinning border-->
+                </div>
+
+                <div>
+                    <div class="spinning-border">
+                        <div>Text</div>
+                        <div class="border-anim2"></div>
+                    </div>
+                    <!--                    Spinning background-image that looks like border-->
+                </div>
+            </div>
+        </section>
+
+        <section id="TRANSFORMS-o">
+            <h2>TRANSFORMS</h2>
+            <p>
+                The transform CSS property lets you <span>rotate, scale, skew, or translate</span> an element.
+            </p>
+            <div class="comparison">
+                <div>
+                    <div class="box1">Text</div>
+                    <p>Original</p>
+                </div>
+
+                <div>
+                    <div class="box1 rotate">Text</div>
+                    <p>Rotate 68deg</p>
+                </div>
+            </div>
+
+            <div class="comparison">
+                <div>
+                    <div class="box1 scale">Text</div>
+                    <p>Scale 1.2</p>
+                </div>
+
+                <div>
+                    <div class="box1 translate-scale">Text</div>
+                    <p>Translate, scale 0.5, rotate -42deg</p>
+                </div>
+            </div>
+
+        </section>
+
+        <section id="FILTERS-o">
+            <h2>FILTERS</h2>
+            <p>
+                The filter CSS property applies <span>graphical effects</span> like blur or color shift to an element.
+                Filters are commonly used to adjust the rendering of images, backgrounds, and borders.
+            </p>
+            <div class="example">
+                <div>
+                    <img
+                            src="media/heart.png"
+                            alt="Heart">
+                    Original
+                </div>
+
+                <div>
+                    <img
+                            class="blur"
+                            src="media/heart.png"
+                            alt="Heart">
+                    Blur
+                </div>
+
+                <div>
+                    <img
+                            class="grayscale"
+                            src="media/heart.png"
+                            alt="Heart">
+                    Grayscale
+                </div>
+
+                <div>
+                    <img
+                            class="hue-rotate"
+                            src="media/heart.png"
+                            alt="Heart">
+                    Hue-rotate
+                </div>
+
+                <div>
+                    <img
+                            class="sepia"
+                            src="media/heart.png"
+                            alt="Heart">
+                    Sepia
+                </div>
+            </div>
+        </section>
+
+        <section id="ANIMATIONS_AND_TRANSITIONS">
+            <h2>ANIMATIONS AND TRANSITIONS RELATIONSHIP</h2>
+            <ul>
+                <li>Transitions don’t change properties</li>
+                <li>Transitions define the <span>change</span> only between property values and not the values
+                    themselves
+                </li>
+                <li>Animations <span>can</span> change property values inside each keyframe</li>
+                <li>Transitions can’t loop</li>
+            </ul>
+            <div class="warning">Not all CSS properties can be animated!</div>
+            <div class="comparison">
+                <div>
+                    <div class="box1 appear-display-anim">
+                        display
+                    </div>
+                </div>
+
+                <div>
+                    <div class="box1 appear-fade-anim">
+                        opacity
+                    </div>
+                </div>
+            </div>
+
+            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties" target="_blank">
+                https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties
+            </a>
+        </section>
+    </article>
+    <h2 id="SYNTAX">SYNTAX, GOOD AND BAD PRACTICES</h2>
+    <article>
+        <section id="TRANSITION-s">
+            <h2>TRANSITION</h2>
+            <h3>Syntax</h3>
+            <p>Example of good and bad syntax:</p>
+            <img src="media/s-tr2.png" alt="" class="fine">
+            <h3>Hardware acceleration</h3>
+            <p>will-change property</p>
+            <img src="media/s-tr.png" alt="" class="fine">
+            <p>GPUs and CPUs render things differently that's why we need optimization</p>
+            <div class="comparison">
+                <div>
+                    <div class="box5 transitions9">margin</div>
+                </div>
+
+                <div>
+                    <div class="box6 transitions9">transform</div>
+                </div>
+            </div>
+
+            <ul>
+                <li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition">
+                    https://developer.mozilla.org/en-US/docs/Web/CSS/transition
+                </a></li>
+                <li><a target="_blank" href="https://www.joshwcomeau.com/animation/css-transitions/">
+                    https://www.joshwcomeau.com/animation/css-transitions/
+                </a></li>
+                <li><a target="_blank" href="https://easings.net/">https://easings.net</a></li>
+                <li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/web/CSS/will-change">
+                    https://developer.mozilla.org/en-US/docs/web/CSS/will-change
+                </a></li>
+            </ul>
+        </section>
+
+        <section id="ANIMATION-s">
+            <h2>ANIMATION</h2>
+            <h3>Keyframes</h3>
+            <p>@keyframes is a CSS rule which allows step control in CSS animation sequence.
+                It gives more control than transitions due to specifying properties and values in each keyframe
+            </p>
+            <p>
+                Specifying keyframes:
+            </p>
+            <img src="media/s-a.png" alt="" class="good">
+            <p>
+                Adjusting animation properties:
+            </p>
+            <img src="media/s-a2.png" alt="" class="good">
+            <img src="media/s-a3.png" alt="" class="bad">
+
+            <img src="" alt="">
+            <ul>
+                <li><a target="_blank" href=" https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes">
+                    https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes
+                </a></li>
+                <li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation">
+                    https://developer.mozilla.org/en-US/docs/Web/CSS/animation
+                </a></li>
+                <li><a target="_blank"
+                       href=https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations">
+                    https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations
+                </a></li>
+            </ul>
+
+        </section>
+
+        <section id="TRANSFORM-s">
+            <h2>TRANSFORM</h2>
+            <img src="media/s-t.png" alt="" class="good">
+            <div class="warning">Only elements positioned by <code>display: block</code> can be transformed</div>
+            <p>Transform will be <span>hardware accelerated</span>
+                when animated, unlike
+                <code>position: absolute</code> or
+                <code>margin: 2em</code>
+            </p>
+            <ul>
+                <li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform">
+                    https://developer.mozilla.org/en-US/docs/Web/CSS/transform</a>
+                </li>
+                <li><a target="_blank"
+                       href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transforms/Using_CSS_transforms">
+                    https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transforms/Using_CSS_transforms</a>
+                </li>
+                <li><a target="_blank" href="https://css-tricks.com/almanac/properties/t/transform/">
+                    https://css-tricks.com/almanac/properties/t/transform/
+                </a></li>
+            </ul>
+        </section>
+
+        <section id="FILTER-s">
+            <h2>FILTER</h2>
+            <img src="media/s-f.png" alt="" class="good">
+
+            <p>Filter works with all elements</p>
+            <!--            <iframe-->
+            <!--                    class="blur2 transitions4"-->
+            <!--                    src="https://www.youtube.com/embed/7OhSoyGM_qY" allowfullscreen></iframe>-->
+            <ul>
+                <li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/filter">
+                    https://developer.mozilla.org/en-US/docs/Web/CSS/filter
+                </a></li>
+            </ul>
+        </section>
+
+        <section id="EASING-s">
+            <h2>EASING FUNCTIONS, CUBIC-BEZIER</h2>
+            <p>The <code>< easing-function ></code> CSS data type denotes a mathematical function that describes the
+                rate at which a numerical value changes.</p>
+            <img src="media/s-e.png" alt="" class="good">
+
+            <p>
+                <!--                Example of using cubic-bezier in digital drawing-->
+            </p>
+            <img src="media/s-e2.png" alt="" class="good">
+            <ul>
+                <li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function">
+                    https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function</a></li>
+                <li><a target="_blank" href="https://cubic-bezier.com/#.82,-0.24,0,.95">https://cubic-bezier.com</a>
+                </li>
+                <li><a target="_blank" href="https://easings.net/">https://easings.net</a></li>
+                <li><a target="_blank" href="https://en.wikipedia.org/wiki/Bézier_curve">https://en.wikipedia.org/wiki/Bézier_curve</a>
+                </li>
+                <li><a target="_blank" href="https://css-tricks.com/advanced-css-animation-using-cubic-bezier/">
+                    https://css-tricks.com/advanced-css-animation-using-cubic-bezier/
+                </a></li>
+            </ul>
+        </section>
+    </article>
+    <h2 id="JAVASCRIPT">JAVASCRIPT-CSS ANIMATIONS</h2>
+    <article>
+
+        <section id="ASSIGNING_CLASS">
+            <h2>ASSIGNING CSS CLASS ON EVENT</h2>
+            <div class="example">
+                <img src="media/heart.png" class="js" alt="">
+            </div>
+        </section>
+
+        <section id="CREATING_IN_JS">
+            <h2>CREATING ANIMATION VIA JS</h2>
+
+            <h3>PURE JAVASCRIPT ANIMATION</h3>
+            <div class="example">
+                <div class="animation-board js">
+                    <button id="stopMoving">Start</button>
+                    <div class="box3 js"></div>
+                </div>
+            </div>
+
+            <h3>ADJUSTING CSS ANIMATION PROPERTY IN JS</h3>
+            <div class="comparison">
+                <div>
+                    <div class="spinning-border">
+                        <div class="border-anim3 js"></div>
+                        <div>Text</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="spinning-border">
+                        <div>Text</div>
+                        <div class="border-anim4 js"></div>
+                    </div>
+                </div>
+                <div class="controls">
+                    <div class="range-group">
+                        <label for="duration">Animation duration</label>
+                        <div>
+                            <input type="range"
+                                   id="duration"
+                                   min="0"
+                                   max="40"
+                                   value="2"
+                                   step="1">
+                            <label>
+                                <input type="number"
+                                       min="0"
+                                       max="40"
+                                       value="2"> </label>
+                        </div>
+                    </div>
+
+                    <div class="range-group">
+                        <label for="iteration">Animation iteration count</label>
+
+                        <div>
+                            <input type="range"
+                                   id="iteration"
+                                   min="0"
+                                   max="100"
+                                   value="100"
+                                   step="1">
+                            <label> <input type="text" value="infinite"> </label>
+                        </div>
+                    </div>
+
+                    <div class="cubic">
+                        <p>Cubic-bezier curve</p>
+                        <div>
+                            <label for="p0">P0</label>
+                            <input type="range"
+                                   id="p0"
+                                   min="0"
+                                   max="1"
+                                   value="0"
+                                   step="any">
+
+                            <label>
+                                <input type="number"
+                                       min="0"
+                                       max="1"
+                                       value="0">
+                            </label>
+
+                            <label for="p1">P1</label>
+                            <input type="range"
+                                   id="p1"
+                                   min="-200"
+                                   max="200"
+                                   value="0"
+                                   step="any">
+
+                            <label>
+                                <input type="number"
+                                           min="-200"
+                                           max="200"
+                                           value="0">
+                            </label>
+
+                            <label for="p2">P2</label>
+                            <input type="range"
+                                   id="p2"
+                                   min="0" max="1"
+                                   value="1" step="any">
+                            <label>
+                                <input type="number"
+                                       min="0"
+                                       max="1"
+                                       value="1">
+                            </label>
+
+                            <label for="p3">P3</label>
+                            <input type="range"
+                                   id="p3"
+                                   min="-200"
+                                   max="200"
+                                   value="1"
+                                   step="any">
+
+                            <label>
+                                <input type="number"
+                                       min="-200"
+                                       max="200"
+                                       value="1">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ul>
+                <li><a target="_blank"
+                       href="https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame">
+                    https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame</a></li>
+                <li><a target="_blank"
+                       href="https://javascript.info/js-animation">https://javascript.info/js-animation</a></li>
+            </ul>
+
+        </section>
+
+    </article>
+</main>
+</body>
+</html>
